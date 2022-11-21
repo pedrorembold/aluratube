@@ -31,7 +31,7 @@ function HomePage() {
 
     }, []);
 
-    console.log("Playlists Pronto", playlists);
+  
 
 
     return (
@@ -46,7 +46,7 @@ function HomePage() {
                     valorDoFiltro={valorDoFiltro}
                     setValorDoFiltro={setValorDoFiltro}
                 />
-                <Header />
+                <Header />   
                 <Timeline
                     searchValue={valorDoFiltro}
                     playlists={playlists}
@@ -107,11 +107,17 @@ function Header() {
     )
 }
 
+function NomeSecao (props){
+    return <h1>{props.titulo}</h1>
+}
+
 function Timeline({ searchValue, ...props }) {
     const playlistNames = Object.keys(props.playlists)
 
     return (
+        
         <StyledTimeline>
+            <NomeSecao titulo={"Playlists"}/>
             {playlistNames.map((playlistName) => {
                 const videos = props.playlists[playlistName]
                 return (

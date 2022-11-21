@@ -23,6 +23,7 @@ export const StyledTimeline = styled.div`
     padding: 0;
     overflow: hidden;
     padding: 16px;
+    
     div {
       
       width: calc(100vw - 16px * 4);
@@ -40,6 +41,7 @@ export const StyledTimeline = styled.div`
           display: block;
           padding-right: 24px;
           color: ${({ theme }) => theme.textColorBase || "#222222"};
+          margin-bottom: 16px;
         }
       }
     }
