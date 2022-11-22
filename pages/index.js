@@ -88,6 +88,10 @@ const StyledBanner = styled.div`
     background-image: url(${({ bg }) => bg});
     height: 230px;
   `
+
+  const StyledNomeSecao = styled.h1`
+    padding: 16px;
+  `
 function Header() {
     return (
         <StyledHeader>
@@ -117,7 +121,7 @@ function Timeline({ searchValue, ...props }) {
     return (
         
         <StyledTimeline>
-            <NomeSecao titulo={"Playlists"}/>
+            <StyledNomeSecao>Playlists</StyledNomeSecao>
             {playlistNames.map((playlistName) => {
                 const videos = props.playlists[playlistName]
                 return (

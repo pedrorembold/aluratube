@@ -1,6 +1,6 @@
 import { StyledRegisterVideo } from "./styles";
 import React from "react";
-import { createClient } from"@supabase/supabase-js"
+import { createClient } from "@supabase/supabase-js"
 
 function useForm(propsDoForm) {
     const [values, setValues] = React.useState(propsDoForm.initialValues)
@@ -14,7 +14,7 @@ function useForm(propsDoForm) {
                 [name]: value,
             });
         },
-        clearForm () {
+        clearForm() {
             setValues({})
         }
     }
@@ -32,8 +32,8 @@ export default function RegisterVideo() {
         initialValues: { titulo: "", url: "", playlist: "" }
     });
     const [formVisivel, setFormVisivel] = React.useState(false);
-    
-    
+
+
     return (
         <StyledRegisterVideo>
             <button className="add-video" onClick={() => setFormVisivel(true)}>
@@ -51,9 +51,9 @@ export default function RegisterVideo() {
                         thumbnail: getThumbnail(formCadastro.values.url),
                         playlist: formCadastro.values.playlist,
                     })
-                    .then((wtf) => {console.log(wtf)})
-                    .catch((err) => {console.log(err);})
-                    
+                        .then((wtf) => { console.log(wtf) })
+                        .catch((err) => { console.log(err); })
+
                     formCadastro.clearForm();
                 }}>
                     <div>
@@ -61,23 +61,26 @@ export default function RegisterVideo() {
                             X
                         </button>
                         <input
+                            required
                             placeholder="Titulo do Vídeo"
                             name="titulo"
                             value={formCadastro.values.titulo}
                             onChange={formCadastro.handleChange} />
-                        <input 
-                            placeholder="URL" 
+                        <input
+                            required
+                            placeholder="URL"
                             name="url"
-                            value={formCadastro.values.url} 
+                            value={formCadastro.values.url}
                             onChange={formCadastro.handleChange}
-                            
+
                         />
-                        <input 
-                            placeholder="Nome da Playlist" 
+                        <input
+                            required
+                            placeholder="Nome da Playlist"
                             name="playlist"
-                            value={formCadastro.values.playlist} 
+                            value={formCadastro.values.playlist}
                             onChange={formCadastro.handleChange}
-                            
+
                         />
                         <button type="submit">Cadastrar</button>
                     </div>

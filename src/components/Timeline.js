@@ -11,6 +11,7 @@ export const StyledTimeline = styled.div`
     text-transform: capitalize;
   }
   img {
+    border-radius: 5%;
     aspect-ratio: 16/9;
     font-weight: 500;
     object-fit: cover;
